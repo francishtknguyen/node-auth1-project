@@ -28,9 +28,9 @@ async function checkUsernameFree(req, res, next) {
   const { username } = req.body;
   const user = await findBy({ username });
   if (!user) {
-    next();
-  } else {
     next({ status: 422, message: "Username taken" });
+  } else {
+    next();
   }
 }
 
